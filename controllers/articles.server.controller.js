@@ -3,11 +3,11 @@ var Article = require('./../models/Article.js');
 var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
-module.exports.singleView = function(req, res) {
-  req.render('./../public/views/article/view.ejs', {
-  	user: req.user || null,
-  	request:req
-});
+module.exports.singleView = function(req, res){
+  res.render('./../public/views/article/view.ejs', {
+          user: req.user || null,
+           request: req
+         });
 }
 
 module.exports.listView = function(req, res) {
@@ -17,7 +17,8 @@ module.exports.listView = function(req, res) {
 
   				message: errorHandler.getErrorMessage(err)
   			});
-    } else {
+   }
+   else {
       console.log("api called");
 
       res.render('./../public/views/article/all.ejs', {
@@ -28,11 +29,7 @@ module.exports.listView = function(req, res) {
     }
   });
 
-	
 };
-
-
-
 
 module.exports.list = function(req, res) {
   Article.find(function(err, data) {
