@@ -10,6 +10,14 @@ module.exports.singleView = function(req, res){
          });
 }
 
+module.exports.createView = function(req, res){
+  res.render('./../public/views/article/new.ejs', {
+          user: req.user || null,
+           request: req
+         });
+}
+
+
 module.exports.listView = function(req, res) {
   Article.find(function(err, data) {
    if (err) {

@@ -15,13 +15,14 @@ module.exports = function(app){
 	.get(articles.read)
 	.put(users.requiresLogin, articles.update);
 
-	app.route('/:articleId')
+	app.route('/article/:articleId')
 	.get(articles.view)
 	
 	.get(articles.read)
 	.put(users.requiresLogin, articles.update);
 	
 app.route('/articles/all').get(articles.listView);
+app.route('/articles/new').get(articles.createView);
 
 app.route('/article/:articleId').get(articles.singleView);
 app.param('articleId', articles.articleByID);
