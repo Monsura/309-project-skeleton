@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Article = require('./../models/Article.js');
+var Articles = require('./../models/Article.js');
 var errorHandler = require('./errors.server.controller');
 var _ = require('lodash');
 
